@@ -28,8 +28,20 @@ public class LinkedListRunner {
 		}
 		
 	}
+	String search(int x) {
+		Node temp = start.next;
+		//IF WE KEEP TEMP.NEXT != NULL, THE LAST ELEMENT WILL NEVER BE CHECKED.
+		while(temp != null) {
+			if(temp.data == x)
+				return "Found";
+			else
+				temp = temp.next;
+		}
+		return "Not Found";
+	}
 	void deleteRear() {
 		Node temp = start.next;
+		//WE NEED TO STOP AT SECOND LAST NODE
 		while(temp.next != rear)
 			temp = temp.next;
 		rear = temp;
@@ -80,8 +92,8 @@ public class LinkedListRunner {
 		ll.deleteRear();
 		ll.insertHead(22);
 		ll.display();
-		ll.reverse();
-		ll.display();
+		System.out.println(ll.search(78));
 	}
 
 }
+
